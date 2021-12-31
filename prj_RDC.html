@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="it">
+<head><title>prjRDC</title></head>
+<body>
+<h1>prjRDC!</h1>
+<p>- la temperatura esterna rilevata a Massafra da weathermap -</p>
+<p id="temperatura"></p>
+
+<script type="text/javascript">
+<!--
+const url = 'https://api.openweathermap.org/data/2.5/weather?id=6537564&appid=e6590883f962a7dc310bd3ffd324ce35&lang=it&units=metric'
+ //   r = requests.get(url)
+ //   weather = json.loads(r.content.decode())       
+ //   ext_temp=weather['main']['temp']
+ //   ext_humidity=weather['main']['humidity']
+ //   return ext_temp,ext_humidity  
+fetch(url).then((response) => {
+    if (response.ok) {
+       return response.json();
+    }
+ }).then((data) => {
+	 var temp=data["main"]["temp"];
+        document.getElementById("temperatura").innerHTML = temp;
+//        document.body.innerHTML = temp;
+ }).catch(error => console.log("Si e verificato un errore!"))
+
+//-->
+</script>
+</body>
+</html>
